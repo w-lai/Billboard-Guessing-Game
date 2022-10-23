@@ -2,4 +2,6 @@
 
 Simple Billboard Hot 100 Guessing Game Using Billboard API.
 
-Run using python3.
+Made in Python3, and uses requests.
+
+`pip install requests` 
