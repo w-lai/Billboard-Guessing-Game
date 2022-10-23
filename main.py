@@ -5,9 +5,10 @@ NUMBER_OF_GAMES = 3
 BASE = "https://webscrapingpythonapi.herokuapp.com/"
 #create an array that stores all the song data
 songInfo = []
-response = requests.get(BASE + "songs/")
-response = response.json()
-songInfo.append(response)
+for i in range(1,100):
+    response = requests.get(BASE + "songs/" + str(i))
+    response = response.json()
+    songInfo.append(response)
     
 
 print("Welcome to the game of guessing song rankings on the top charts")
@@ -17,13 +18,13 @@ statistics = 0
 for i in range(1, NUMBER_OF_GAMES + 1):
     print("Pick the order of the following songs:")
     # get three random numbers
-    x = songInfo[random.randrange(0,3)]
-    y = songInfo[random.randrange(0,3)]
+    x = songInfo[random.randrange(0,100)]
+    y = songInfo[random.randrange(0,100)]
     while(y == x):
-        y = songInfo[random.randrange(0,3)]
-    z = songInfo[random.randrange(0,3)]
+        y = songInfo[random.randrange(0,100)]
+    z = songInfo[random.randrange(0,100)]
     while(z == x or z == y):
-        z = songInfo[random.randrange(0,3)]
+        z = songInfo[random.randrange(0,100)]
     print(x["name"])
     print(y["name"])
     print(z["name"])
